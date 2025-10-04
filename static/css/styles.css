@@ -395,6 +395,9 @@ button,
 [type=reset],
 [type=submit] {
   -webkit-appearance: button;
+  appearance: button;
+  appearance: button;
+  appearance: button;
 }
 button:not(:disabled),
 [type=button]:not(:disabled),
@@ -453,6 +456,7 @@ legend + * {
 [type=search] {
   outline-offset: -2px;
   -webkit-appearance: textfield;
+  appearance: textfield;
 }
 
 /* rtl:raw:
@@ -465,6 +469,7 @@ legend + * {
 */
 ::-webkit-search-decoration {
   -webkit-appearance: none;
+  appearance: none;
 }
 
 ::-webkit-color-swatch-wrapper {
@@ -473,7 +478,7 @@ legend + * {
 
 ::file-selector-button {
   font: inherit;
-  -webkit-appearance: button;
+  --appearance: none;
 }
 
 output {
@@ -10845,10 +10850,11 @@ textarea.form-control-lg {
 }
 
 .contact-section {
-  background: linear-gradient(135deg, #6610f2, #8a2be2);
+  background: linear-gradient(135deg, #ff0000, #ff4d4d);
   color: #fff;
   padding: 80px 20px;
 }
+
 .contact-section h1 {
   font-size: 4rem;
   font-weight: 800;
