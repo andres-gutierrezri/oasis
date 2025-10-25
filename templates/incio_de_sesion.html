@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OASIS | Iniciar Sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/static/img/oasis.jpg">
+  <style>
+    body {
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      transition: all 0.4s ease;
+    }
+    .card h3 {
+      text-align: center;
+      color: #2a5298;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+    .btn-primary {
+      background-color: #2a5298;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #1e3c72;
+    }
+    .toggle-link {
+      color: #2a5298;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Formulario de inicio de sesión -->
+    <div id="loginForm">
+      <h3>Iniciar Sesión</h3>
+      <form>
+        <div class="mb-3">
+          <label for="loginEmail" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="loginEmail" placeholder="usuario@correo.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="loginPassword" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="loginPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+      </form>
+      <div class="text-center mt-3">
+        <small>¿No tienes cuenta? <span class="toggle-link" onclick="mostrarRegistro()">Crea una aquí</span></small>
+      </div>
+    </div>
+
+    <!-- Formulario de registro -->
+    <div id="registerForm" style="display:none;">
+      <h3>Crear Cuenta</h3>
+      <form>
+        <div class="mb-3">
+          <label for="regName" class="form-label">Nombre completo</label>
+          <input type="text" class="form-control" id="regName" placeholder="Tu nombre completo" required>
+        </div>
+        <div class="mb-3">
+          <label for="regEmail" class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="regEmail" placeholder="usuario@correo.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="regPassword" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="regPassword" placeholder="••••••••" required>
+        </div>
+        <div class="mb-3">
+          <label for="regConfirm" class="form-label">Confirmar contraseña</label>
+          <input type="password" class="form-control" id="regConfirm" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+      </form>
+      <div class="text-center mt-3">
+        <small>¿Ya tienes cuenta? <span class="toggle-link" onclick="mostrarLogin()">Inicia sesión</span></small>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Cambiar entre formularios
+    function mostrarRegistro() {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('registerForm').style.display = 'block';
+    }
+
+    function mostrarLogin() {
+      document.getElementById('registerForm').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'block';
+    }
+
+    // --- Registro ---
+    document.querySelector("#registerForm form").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = document.getElementById("regName").value;
+      const email = document.getElementById("regEmail").value;
+      const pass = document.getElementById("regPassword").value;
+      const confirm = document.getElementById("regConfirm").value;
+
+      if (pass !== confirm) {
+        alert("Las contraseñas no coinciden ⚠️");
+        return;
+      }
+
+      // Guardar usuario en localStorage
+      const users = JSON.parse(localStorage.getItem("usuariosOasis")) || [];
+      const userExists = users.find(u => u.email === email);
+
+      if (userExists) {
+        alert("Ese correo ya está registrado ❌");
+        return;
+      }
+
+      users.push({ name, email, pass });
+      localStorage.setItem("usuariosOasis", JSON.stringify(users));
+
+      alert("Cuenta creada con éxito 🎉 Ahora puedes iniciar sesión.");
+      mostrarLogin();
+    });
+
+    // --- Inicio de sesión ---
+    document.querySelector("#loginForm form").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const email = document.getElementById("loginEmail").value;
+      const pass = document.getElementById("loginPassword").value;
+
+      const users = JSON.parse(localStorage.getItem("usuariosOasis")) || [];
+      const validUser = users.find(u => u.email === email && u.pass === pass);
+
+      if (validUser) {
+        alert("Bienvenido a OASIS 🌴, " + validUser.name + "!");
+        localStorage.setItem("usuarioActivo", JSON.stringify(validUser));
+        window.location.href = "index.html";
+      } else {
+        alert("Correo o contraseña incorrectos ❌");
+      }
+    });
+  </script>
+</body>
+</html>
