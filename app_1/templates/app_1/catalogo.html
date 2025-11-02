@@ -1,0 +1,235 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Catálogo de servicios OASIS" />
+  <meta name="author" content="OASIS Team" />
+  <title>Catálogo - OASIS</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{% static 'app_1/img/oasis.jpg' %}" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="{% static 'app_1/css/styles.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container px-4 px-lg-5">
+      <a class="navbar-brand" href="{% url 'index' %}">OASIS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">Tienda</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#!">Todos los Artículos</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#!">Artículos Populares</a></li>
+              <li><a class="dropdown-item" href="#!">Nuevos</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <form class="d-flex">
+          <button class="btn btn-outline-light" type="button" data-bs-toggle="modal" data-bs-target="#carritoModal">
+            <i class="bi bi-cart-fill me-1"></i>
+            Carrito
+            <span id="carrito-count" class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container px-4 px-lg-5 my-5">
+      <div class="text-center text-white">
+        <h1 class="display-4 fw-bolder">Catálogo</h1>
+        <p class="lead fw-normal text-white-50 mb-0">Todo lo que ofrecemos</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- CATÁLOGO -->
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+        <!-- Producto 1 -->
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top" src="static/img/afiches/hamburguesa.png" alt="Afiches" />
+            <div class="card-body p-4 text-center">
+              <h5 class="fw-bolder">Afiches</h5>
+              <p>$50.000</p>
+            </div>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              <div class="text-center">
+                <button class="btn btn-outline-dark mt-auto" onclick="agregarAlCarrito('Afiches', 50000)">Añadir al Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top" src="static/img/hola.jpg" alt="Objetos" />
+            <div class="card-body p-4 text-center">
+              <h5 class="fw-bolder">Objetos</h5>
+              <p>$90.000</p>
+            </div>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              <div class="text-center">
+                <button class="btn btn-outline-dark mt-auto" onclick="agregarAlCarrito('Objetos', 90000)">Añadir al Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top" src="static/img/iconos.png" alt="Redes Sociales" />
+            <div class="card-body p-4 text-center">
+              <h5 class="fw-bolder">Redes Sociales</h5>
+              <p>$100.000</p>
+            </div>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              <div class="text-center">
+                <button class="btn btn-outline-dark mt-auto" onclick="agregarAlCarrito('Redes Sociales', 100000)">Añadir al Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="col mb-5">
+          <div class="card h-100">
+            <img class="card-img-top" src="static/img/campañas.jpg" alt="Campañas" />
+            <div class="card-body p-4 text-center">
+              <h5 class="fw-bolder">Campañas</h5>
+              <p>$600.000</p>
+            </div>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              <div class="text-center">
+                <button class="btn btn-outline-dark mt-auto" onclick="agregarAlCarrito('Campañas', 600000)">Añadir al Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DEL CARRITO -->
+  <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title" id="carritoModalLabel">🛒 Tu Carrito</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carrito-items" class="list-group"></div>
+          <hr>
+          <div class="d-flex justify-content-between align-items-center">
+            <h5>Total:</h5>
+            <h5 id="carrito-total">$0</h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir comprando</button>
+          <button type="button" class="btn btn-success" onclick="pagar()">💳 Pagar ahora</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="py-5 bg-dark mt-auto">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; OASIS 2025</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    let carrito = [];
+
+    function agregarAlCarrito(nombre, precio) {
+      const itemExistente = carrito.find(p => p.nombre === nombre);
+      if (itemExistente) {
+        itemExistente.cantidad++;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
+      }
+      actualizarCarrito();
+    }
+
+    function eliminarProducto(nombre) {
+      carrito = carrito.filter(p => p.nombre !== nombre);
+      actualizarCarrito();
+    }
+
+    function actualizarCarrito() {
+      const carritoCount = document.getElementById("carrito-count");
+      const carritoItems = document.getElementById("carrito-items");
+      const carritoTotal = document.getElementById("carrito-total");
+
+      carritoItems.innerHTML = "";
+      let total = 0;
+
+      carrito.forEach(p => {
+        const subtotal = p.precio * p.cantidad;
+        total += subtotal;
+
+        const item = document.createElement("div");
+        item.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+        item.innerHTML = `
+          <div>
+            <strong>${p.nombre}</strong> <br>
+            $${p.precio.toLocaleString()} x ${p.cantidad}
+          </div>
+          <div>
+            <button class="btn btn-sm btn-danger" onclick="eliminarProducto('${p.nombre}')">🗑 Eliminar</button>
+          </div>
+        `;
+        carritoItems.appendChild(item);
+      });
+
+      carritoCount.textContent = carrito.length;
+      carritoTotal.textContent = "$" + total.toLocaleString();
+    }
+
+    function pagar() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío 😅");
+        return;
+      }
+      const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
+      alert(`✅ Gracias por tu compra, Tanjiro ❤️\nTotal pagado: $${total.toLocaleString()}`);
+      carrito = [];
+      actualizarCarrito();
+      const modal = bootstrap.Modal.getInstance(document.getElementById('carritoModal'));
+      modal.hide();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="OASIS - Agencia de publicidad creativa" />
+        <meta name="author" content="OASIS Team" />
+        <title>OASIS</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="{% static 'app_1/img/oasis.jpg' %}" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'app_1/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-danger bg-danger">
+            <div class="container px-5">
+                <a class="navbar-brand" href="{% url 'index' %}">OASIS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'catalogo' %}">Catálogo</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header--> 
+        <header class="py-5">
+         <head>
+    <style>
+     
+    </style>
+</head>
+    
+            <style>
+                header {
+                    text-align: center;
+                    padding: 20px;
+                    background-color: #f8f9fa00;
+                }
+                header img {
+                    max-width: 15%;
+                    height: auto;
+                }
+            </style>
+            <img src="static/img/oasis.jpg" alt="Logo de la empresa">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">¡Bienvenidos a Oasis!</h1>
+                            <p class=" text-light bg-opacity-25 fs-5">En Oasis el servicio que queremos ofrecer es la creación de campañas publicitarias o cosas relacionadas con la publicidad, en el que somos una gran opción ya que nos centramos en que nuestros servicios estén siempre un paso adelante y a la vanguardia de todo, con un toque único e innovador que nos identifica.</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Features section-->
+        <section class="py-5 border-bottom" id="features">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0 text-center">
+        <div class="feature bg-danger bg-gradient text-white rounded-3 mb-3 d-inline-flex justify-content-center align-items-center">
+            <i class="bi bi-display"></i>
+        </div>
+        <h2 class="h4 fw-bolder text-danger">Conócenos</h2>
+        <p class="text-light bg-opacity-25 fs-5">Es una agencia de publicidad que espera en un futuro florecer como empresa para de esta manera lograr el éxito como marca.</p>
+        <a class="text-decoration-none" href="{% url 'conocenos' %}">
+            Ver más
+            <i class="bi bi-arrow-right"></i>
+        </a>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0 text-center">
+        <div class="feature bg-danger bg-gradient text-white rounded-3 mb-3 d-inline-flex justify-content-center align-items-center">
+            <i class="bi bi-book"></i>
+        </div>
+        <h2 class="h4 fw-bolder text-danger">Catálogo</h2>
+        <p class="text-light bg-opacity-25 fs-5">Aquí puedes consultar nuestro trabajos ver imágenes de empresas que han trabajado con nosotros.</p>
+        <a class="text-decoration-none" href="{% url 'catalogo' %}">
+            Ver más
+            <i class="bi bi-arrow-right"></i>
+        </a>
+    </div>
+</div>
+            </div>
+        </section>
+        <header class="py-5">
+        <!-- Pricing section-->
+                <div class="text-center mb-5">
+                    <h2 class="text-danger fw-bolder">Piezas gráficas</h2>
+                    <p class="text-light lead mb-0">Estos son algunos de los afiches que hemos hecho</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <!-- Pricing card free-->
+ <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <div class="d-flex gap-2">
+    <style>
+        .my-image {
+            width: 50%; /* Ajusta al 50% del contenedor */
+            height: auto; /* Mantiene la relación de aspecto */
+        }
+    </style>
+  <img src="static/img/afiches/cafe.png" class="w-50" alt="Esto es un cafe" style="max-width: 100%; max-height: 600px;">
+  <img src="static/img/afiches/casa.png" class="w-50" alt="esto es un puente" style="max-width: 100%; max-height: 600px;">
+  <img src="static/img/afiches/lavanderia.png" class="w-50" alt="esto es una lavadora" style="max-width: 100%; max-height: 600px;">
+  <img src="static/img/afiches/hamburguesa.png" class="w-50" alt="esto es una hamburguesa" style="max-width: 100%; max-height: 600px;">
+</div>
+    </div>
+    <div class="carousel-item">
+    <div class="d-flex gap-2">
+      <img src="static/img/afiches/rebajas.png" class="w-25" alt="esto es un descuentazo" style="max-width: 100%; max-height: 600px;">
+      <img src="static/img/afiches/Volante festival verano informal rojo café .png" class="w-25" alt="publicidad que hemos hecho" style="max-width: 100%; max-height: 600px;">
+      <img src="static/img/afiches/sonrisitas.png" class="w-25" alt="publicidad que hemos hecho" style="max-width: 100%; max-height: 600px;">
+      <img src="static/img/afiches/descanso_cafe.png" class="w-25" alt="publicidad que hemos hecho" style="max-width: 100%; max-height: 600px;">
+</div>
+    </div>
+     <div class="carousel-item">
+    <div class="d-flex gap-2">
+      <img src="static/img/afiches/ingles.png" class="w-25" alt="esto es un descuentazo" style="max-width: 100%; max-height: 600px;">
+      <img src="static/img/afiches/exibision.png" class="w-25" alt="publicidad que hemos hecho" style="max-width: 100%; max-height: 600px;">
+      <img src="static/img/afiches/caraoke.png" class="w-25" alt="publicidad que hemos hecho" style="max-width: 100%; max-height: 600px;">
+      <img src="static/img/afiches/afroco.png" class="w-25" alt="publicidad que hemos hecho" style="max-width: 100%; max-height: 600px;">
+    </div>
+</div>
+
+  </div>
+</div>
+        </section>
+        <!-- Testimonials section-->
+        <section class="py-5 border-bottom">
+            <div class="container px-5 my-5 px-5">
+                <div class="text-center mb-5">
+                    <h2 class="text-danger fw-bolder">Portafolio de logos </h2>
+                    <p class="text-light lead mb-0">Gracias por confiar en nosotros</p>
+                </div>
+                
+  <div class="row row-cols-3 g-3">
+    <div class="col">
+      <img src="static/img/Addodas.png" class="img-fluid rounded" alt="Imagen 1" style="max-width: 200px;">
+    </div>
+    <div class="col">
+      <img src="static/img/nuke.png" class="img-fluid rounded" alt="Imagen 2" style="max-width: 200px;">
+    </div>
+    <div class="col">
+      <img src="static/img/calvo.png" class="img-fluid rounded" alt="Imagen 3" style="max-width: 200px;">
+    </div>
+    <div class="col">
+      <img src="static/img/Nostle.png" class="img-fluid rounded-circle" alt="Imagen 4" style="max-width: 200px;">
+    </div>
+    <div class="col">
+      <img src="static/img/relox.png" class="img-fluid rounded-circle" alt="Imagen 5" style="max-width: 200px;">
+    </div>
+    <div class="col">
+      <img src="static/img/sunsun.png" class="img-fluid rounded-circle" alt="Imagen 6" style="max-width: 200px;">
+    </div>
+  </div>
+</div>
+
+        </section>
+        <!-- Contact section-->
+        <section class="bg-light py-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-danger bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                    <h2 class="fw-bolder">Déjanos tu mensaje</h2>
+                    <p class="lead mb-0">¡Amamos que seas parte de nuestro equipo!</p>
+<img src="static/img/gif-web.gif" alt="un giftsazo" class="float-start me-3" style="width: 300px; height: 200px;">
+<img src="static/img/gif-web.gif" alt="un giftsazo" class="float-end me-3" style="width: 300px; height: 200px;">
+
+
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <!-- Name input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="name">Nombre completo</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            <!-- Email address input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="email">Correo electrónico</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                            <!-- Phone number input-->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <label for="phone">Número telefónico</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                            <!-- Message input-->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Mensaje</label>
+
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                            <!-- Submit success message-->
+                            <!---->
+                            <!-- This is what your users will see when the form-->
+                            <!-- has successfully submitted-->
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            <!-- Submit error message-->
+                            <!---->
+                            <!-- This is what your users will see when there is-->
+                            <!-- an error submitting the form-->
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-danger btn-lg disabled" id="submitButton" type="submit">Enviar</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>¿
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="../static/js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <section class="contact-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Columna izquierda -->
+      <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+        <h5 class="fw-bold">Contáctanos y</h5>
+        <h1>Charlemos</h1>
+        <div class="mt-4">
+          <a href="#"><i class="bi bi-facebook"></i> Facebook</a>
+          <a href="#"><i class="bi bi-instagram"></i> Instagram</a>
+          <a href="#"><i class="bi bi-X"></i> X</a>Twitter
+        </div>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="col-md-6 text-center text-md-start">
+        <p>Teléfono: <a href="tel:+573127341082" class="text-white">+57 312 7341082</a></p>
+        <p>Email: <a href="mailto:info@oasis.com" class="text-white">agenciadepublicidad@gmail.com</a></p>
+        <p>Dirección: Cra 87a #6A Colegio Gabriel Betancourt Mejía Salon de tecnología 2do piso</p>
+        <p>Bogotá Colombia</p>
+        <h5 class="mt-4 fst-italic">¡Tu refugio creativo en el decierto de la publicidad!</h5>
+        
+      </div>
+      
+    </div>
+  </div>
+</section>
+<!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; OASIS 2025 </p></div>
+        </footer>
+    </body>
+</html>
