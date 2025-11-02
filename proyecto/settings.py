@@ -216,7 +216,6 @@ STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 """
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'proyecto/static'),
     os.path.join(BASE_DIR, 'app_1', 'static', 'app_1'),
 )
 
