@@ -224,7 +224,7 @@
         return;
       }
       const total = carrito.reduce((sum, p) => sum + p.precio * p.cantidad, 0);
-      alert(`✅ Gracias por tu compra, Tanjiro ❤️\nTotal pagado: $${total.toLocaleString()}`);
+      alert(`✅ Gracias por tu compra. Bendiciones ❤️\nTotal pagado: $${total.toLocaleString()}`);
       carrito = [];
       actualizarCarrito();
       const modal = bootstrap.Modal.getInstance(document.getElementById('carritoModal'));
